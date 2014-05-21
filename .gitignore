@@ -1,3 +1,6 @@
 *.[oa]
 *~
 
+# Temp cmake dirs
+_builds
+_install
