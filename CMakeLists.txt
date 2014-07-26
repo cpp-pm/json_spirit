@@ -15,6 +15,7 @@ project(JsonSpirit)
 
 ### Build Options ###
 option(JSON_SPIRIT_BUILD_TESTS "Build unit-tests" OFF)
+option(JSON_SPIRIT_DEBUG_PARSER "Trace spirit parser in Debug config" OFF)
 
 ### Download dependencies ###
 include(HunterGate.cmake)
@@ -53,6 +54,13 @@ add_library(json ${JSON_SPIRIT_SOURCES})
 # Enable V3 of Phoenix by default. V2 has some issues with C++11
 # compilers.
 target_compile_definitions(json PUBLIC BOOST_SPIRIT_USE_PHOENIX_V3=1)
+
+if(JSON_SPIRIT_DEBUG_PARSER)
+  target_compile_definitions(
+      json PUBLIC "$<$<CONFIG:Debug>:BOOST_SPIRIT_DEBUG>"
+  )
+endif()
+
 
 set(INCL_DEST "include")
 
