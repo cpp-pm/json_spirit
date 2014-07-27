@@ -17,8 +17,14 @@ project(JsonSpirit)
 option(JSON_SPIRIT_BUILD_TESTS "Build unit-tests" OFF)
 option(JSON_SPIRIT_DEBUG_PARSER "Trace spirit parser in Debug config" OFF)
 
+### Hunter snapshot that will be used ###
+include("cmake/HunterGate.cmake")
+HunterGate(
+    URL "https://github.com/ruslo/hunter/archive/v0.5.11.tar.gz"
+    SHA1 "3fb31d5a5d53fae93792866ef1486f83d15efe88"
+)
+
 ### Download dependencies ###
-include(HunterGate.cmake)
 hunter_add_package(Boost COMPONENTS test)
 hunter_add_package(Sugar)
 
