@@ -9,9 +9,7 @@
 # CMake build control file for json_spirit
 # Created following settings in Jamroot and libs/json/test/Jamfile
 
-cmake_minimum_required(VERSION 2.8)
-
-project(JsonSpirit)
+cmake_minimum_required(VERSION 3.0)
 
 ### Build Options ###
 option(JSON_SPIRIT_BUILD_TESTS "Build unit-tests" OFF)
@@ -20,9 +18,11 @@ option(JSON_SPIRIT_DEBUG_PARSER "Trace spirit parser in Debug config" OFF)
 ### Hunter snapshot that will be used ###
 include("cmake/HunterGate.cmake")
 HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.5.11.tar.gz"
-    SHA1 "3fb31d5a5d53fae93792866ef1486f83d15efe88"
+    URL "https://github.com/ruslo/hunter/archive/v0.8.1.tar.gz"
+    SHA1 "a9bd96ab113f3af870b13cd05cf4e75b8848cf4a"
 )
+
+project(JsonSpirit)
 
 ### Download dependencies ###
 hunter_add_package(Boost COMPONENTS test)
